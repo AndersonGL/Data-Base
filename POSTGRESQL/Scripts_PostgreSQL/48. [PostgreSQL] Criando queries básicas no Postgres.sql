@@ -67,7 +67,7 @@ FROM products AS p;
 
 -- 2. Selecione apenas as 100 primeiras linhas da tabela orders
 
-SELECT * FROM orders LIMIT 10;
+SELECT * FROM orders LIMIT 100;
 
 
 
