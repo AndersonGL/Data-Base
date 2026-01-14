@@ -155,6 +155,21 @@ obs: O comando SELECT pode se encaixar neste grupo de comnados.
 
 - oracle.com/technical-resources -> Documentation -> Oracle Database -> Development - PDF em SQL Language Reference
 
+### Schema HR
+
+- O banco de dados HR possui 7 tabelas, chamadas:
+
+- Countries
+- Departments
+- Employees
+- Jobs History
+- Jobs
+- Locations
+- Regions
+
+
+
+
 
 
 
