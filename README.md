@@ -108,7 +108,58 @@ Banco usado em ambientes de missão crítica.
 
 ``` sql
 SELECT * FROM funcionarios WHERE salario > 5000;
+
 ```
+
+### DDL 
+
+- São os comandos que interagem com objetos(tabelas,  views, functions,procedures,etc) dentro de um banco de dados
+
+- Create - Cria uma nova tabela, views ou outro objeto dentro do banco de dados
+
+- Alter - Modifica um objeto de detro do banco de dados
+
+- Drop - Exclui um bjeto dentro do banco de dados (tabela,view,etc)
+
+
+### DML 
+
+- São os comandos que interagem com dados dentro de tabelas
+
+obs: O comando SELECT pode se encaixar neste grupo de comnados.
+
+- Insert - Adicona uma nova linha em uma tabela
+
+- Update - Atualiza os valores das linhas de uma tabela
+
+- Delete - Exclui linha de uma tabela.
+
+### TCL
+
+- São os candos dpara controle de transações no SQL. Os comandos DML (Insert, Update e Delete) são exemplos de transações.
+
+- Commit - Salva as alterações no banco.
+
+- Rollback - Desfaz alterações no banco.
+
+
+### DCL
+
+- São os conados para controlar a parte de segurença do banco de dados. Basicamente diz quem terá permissão de quê, e quem terá a permissão a quê.
+
+- Grant - Dá privilégios á um usuário
+
+- Revoke - Retira privilégios de um usuário.
+
+### Documentação Oracle  
+
+- oracle.com/technical-resources -> Documentation -> Oracle Database -> Development - PDF em SQL Language Reference
+
+
+
+
+
+
 
 ------------------------------------------------------------------------
 
