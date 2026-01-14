@@ -294,6 +294,6 @@ Banco NoSQL do Google, muito usado em apps mobile.
 
 ------------------------------------------------------------------------
 
-## 🟫 Mmodelagem Banco de Dados
+# 🟫 Modelagem Banco de Dados
 
 
