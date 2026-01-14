@@ -279,7 +279,7 @@ Banco NoSQL do Google, muito usado em apps mobile.
 
 ------------------------------------------------------------------------
 
-# 📊 Tabela Comparativa
+### 📊 Tabela Comparativa
 
   Banco        Tipo         Uso Ideal            Vantagem Principal
   ------------ ------------ -------------------- ----------------------
@@ -294,6 +294,6 @@ Banco NoSQL do Google, muito usado em apps mobile.
 
 ------------------------------------------------------------------------
 
-# 🟫 Modelagem Banco de Dados
+### 🟫 Modelagem Banco de Dados
 
 
