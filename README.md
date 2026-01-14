@@ -167,6 +167,15 @@ obs: O comando SELECT pode se encaixar neste grupo de comnados.
 - Locations
 - Regions
 
+### Criar Usuarios
+
+- Em outros usuários criar um usuário C##TESTE e uma Senha, Depois conceder todas as
+autorizações
+
+- Depois Criei o Banco HR  e usuario e senha coloquei o acima, depois peguei a pasta 
+arquivo sql com as tabelas que estava na área de trabalho e adicionei. no meu PC 
+local : 192.168.15.20 e abaixo XEXDB.
+
 
 
 
