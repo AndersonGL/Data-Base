@@ -293,3 +293,7 @@ Banco NoSQL do Google, muito usado em apps mobile.
   Firebase     NoSQL        Apps mobile          Realtime
 
 ------------------------------------------------------------------------
+
+## 🟫 Mmodelagem Banco de Dados
+
+
