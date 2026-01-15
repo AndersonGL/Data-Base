@@ -1,9 +1,9 @@
-/***  INTRODU«√O AO SQL ***
+/***  INTRODU√á√ÉO AO SQL ***
 *
 *
 
--- I. INTRODU«√O AO SQL E GRUPOS DE COMANDOS
--- O SQL È uma linguagem de programaÁ„o para trabalhar com dados. Podemos dividir esses comandos em 4 grupos:
+-- I. INTRODU√á√ÉO AO SQL E GRUPOS DE COMANDOS
+-- O SQL √© uma linguagem de programa√ß√£o para trabalhar com dados. Podemos dividir esses comandos em 4 grupos:
 -- a) DDL - Data Definition Language
 -- 
 
@@ -13,16 +13,16 @@
 
 
 
--- II. DOCUMENTA«√O DA ORACLE
--- A Oracle possui uma documentaÁ„o muito rica, que pode ser acessada atravÈs do site abaixo.
+-- II. DOCUMENTA√á√ÉO DA ORACLE
+-- A Oracle possui uma documenta√ß√£o muito rica, que pode ser acessada atrav√©s do site abaixo.
 https://otn.oracle.com
 
 
 -- III . EXPLORANDO AS TABELAS DO BANCO DE DADOS HR
--- Para acessar as tabelas do banco de dados HR È muito simples. Basta clicar em cima da tabela
--- que vocÍ deseja visualizar e uma janela ser· aberta.
+-- Para acessar as tabelas do banco de dados HR √© muito simples. Basta clicar em cima da tabela
+-- que voc√™ deseja visualizar e uma janela ser√° aberta.
 
--- Nessa janela, temos acesso a informaÁıes como: Colunas, Dados, Modelo, RestriÁıes (Constraints) e assim vai.
+-- Nessa janela, temos acesso a informa√ß√µes como: Colunas, Dados, Modelo, Restri√ß√µes (Constraints) e assim vai.
 
 
 -- IV. DESCRIBE/DESC - EXIBINDO A ESTRUTURA DE TABELAS
@@ -30,23 +30,27 @@ https://otn.oracle.com
 
 DESCRIBE employees;
 
-DESC employees;
-
 DESC departments;
 
-DESC regions;
+DESC jobs;
+
 
 -- V. SELECT *, SELECT: Como selecionar colunas em uma tabela.
 
 -- Existem duas formas de selecionar colunas de uma tabela:
 -- a) Todas de uma vez
--- b) Apenas colunas especÌficas
+-- b) Apenas colunas espec√≠ficas
 
 -- Selecione a tabela LOCATIONS
+
+SELECT * FROM locations;
 
 
 
 -- Selecione a tabela EMPLOYEES
+
+
+SELECT * FROM employees;
 
 
 
@@ -54,33 +58,66 @@ DESC regions;
 
 
 
+SELECT * FROM departments;
+
+
+SELECT department_id, department_name FROM departments;
+
+
+
 -- Selecione apenas as colunas FIRST_NAME, EMAIL e SALARY da tabela EMPLOYEES
 
-
-    
-
--- Dica: SeleÁ„o r·pida de tabelas (arrastando com o mouse)
-
-
-
--- VI. FORMAS DE EXECUTAR UM C”DIGO
-
--- Existem duas formas de executar cÛdigos no Oracle
--- a) Executar instruÁ„o (CTRL + ENTER)
--- b) Executar script (F5)
-
-
-
-
--- VII. FORMAS DE COMENTAR UM C”DIGO
-
--- Existem duas formas de criar coment·rios em um cÛdigo.
--- a) Coment·rio de 1 linha
--- b) Coment·rio de linha m˙ltipla
-
-
--- … um coment·rio de 1 linha.
 SELECT * FROM employees;
+
+SELECT
+    first_name,
+    email,
+    salary 
+FROM employees;
+
+
+-- Dica: Sele√ß√£o r√°pida de tabelas (arrastando com o mouse)
+
+SELECT
+    employee_id,
+    first_name,
+    last_name,
+    email,
+    phone_number,
+    hire_date,
+    job_id,
+    salary,
+    commission_pct,
+    manager_id,
+    department_id
+FROM
+    employees;
+
+
+
+
+-- VI. FORMAS DE EXECUTAR UM C√ìDIGO
+
+-- Existem duas formas de executar c√≥digos no Oracle
+-- a) Executar instru√ß√£o (CTRL + ENTER)
+-- b) Executar script (F5)
+-- c) Selecione com o mouse as linhas e de (CTRL + ENTER)
+
+SELECT * FROM employees;
+
+SELECT * FROM jobs;
+
+SELECT * FROM locations;
+
+
+-- VII. FORMAS DE COMENTAR UM C√ìDIGO
+
+-- Existem duas formas de criar coment√°rios em um c√≥digo.
+-- a) Coment√°rio de 1 linha usando --
+-- b) Coment√°rio de linha m√∫ltipla usando /*    */
+
+
+-- SELECT * FROM employees; ex: √önica Linha
 
 /*
 
@@ -89,7 +126,7 @@ FROM employees;
 
 permite
 comentar
-m˙ltiplas
+m√∫ltiplas
 linhas
 
 */
@@ -97,73 +134,142 @@ linhas
 
 -- VIII. DEFININDO ALIAS PARA COLUNAS E TABELAS
 
--- Um alias È uma forma de dar um nome mais intuitivo para as colunas e tabelas do cÛdigo
+-- Um alias √© uma forma de dar um nome mais intuitivo para as colunas e tabelas do c√≥digo
 -- Podemos deefinir um alias para:
 -- a) Colunas
 -- b) Tabelas
 
 -- Selecione as colunas FIRST_NAME, EMAIL e SALARY da tabela EMPLOYEES. 
--- DÍ um nome para as colunas da tabela.
+-- D√™ um nome para as colunas da tabela.
 
-
-
+SELECT first_name nome,
+       email email,
+       salary salario
+FROM
+      employees;
+      
+      
+      
 -- Selecione todas as colunas da tabela JOBS.
--- DÍ um nome para a tabela JOBS.
+-- D√™ um nome para a tabela JOBS.
+-- Usando uma letra j para trazer as colunas sem precisar escrever ela.
 
 
+SELECT
+     j.job_id,
+     j.job_title
+FROM jobs j;
 
 
 -- Relaciona as tabelas employees e departments por meio de um LEFT JOIN.
--- AlÈm disso, as tabelas s„o renomeadas com o aliasing.
+-- Al√©m disso, as tabelas s√£o renomeadas com o aliasing.
+
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.email,
+    e.department_id,
+    d.department_name
+FROM employees e
+LEFT JOIN departments d
+ON e.department_id = d.department_id;
+
 
 
 
 -- IX. OPERADOR || (CONCATENAR) E RESOLVENDO PROBLEMA DO ' DENTRO DE UMA STRING
 
--- FaÁa uma consulta que retorne o nome completo dos funcion·rios (FIRST_NAME + LAST_NAME)
+-- Fa√ßa uma consulta que retorne o nome completo dos funcion√°rios (FIRST_NAME + LAST_NAME)
+-- Usando o || para concatenar as colunas
+-- Usando 
+
+SELECT 
+    first_name nome,
+    last_name sobrenome,
+    first_name || '  ' || last_name nome_completo
+FROM
+    employees;
+    
+
+
+-- Fa√ßa uma consulta que retorne o nome completo + o sal√°rio do funcion√°rio (FIRST_NAME + LAST_NAME + SALARY)
+
+SELECT 
+    first_name nome,
+    last_name sobrenome,
+    first_name || ' ' || last_name || '. Sal√°rio: R$' || salary dados_completos
+FROM
+    employees;
+    
 
 
 
 
--- FaÁa uma consulta que retorne o nome completo + o sal·rio do funcion·rio (FIRST_NAME + LAST_NAME + SALARY)
+-- Fa√ßa uma consulta que retorne a lista de funcion√°rios e seus respectivos gerentes
+-- colocando q de quatto passando o acento fora das chaves no caso porque to usando ->
+-- uma acento agudo dentro da frase.
+
+SELECT 
+
+    first_name || q'{. Employee's manager id:}' || manager_id "Funcion√°rio e Gerente"
+
+FROM employees;
+    
 
 
 
+-- X. C√ÅLCULOS SIMPLES E TABELA DUAL
 
--- FaÁa uma consulta que retorne a lista de funcion·rios e seus respectivos gerentes
+-- Adicione um b√¥nus de R$100 aos sal√°rios de todos os funcion√°rios
+-- + Soma, - Subtrair, * Multiplica e / Divide
 
-
-
--- X. C¡LCULOS SIMPLES E TABELA DUAL
-
--- Adicione um bÙnus de R$100 aos sal·rios de todos os funcion·rios
-
-
-
-
--- Adicione um bÙnus de 25% do sal·rio para todos os funcion·rios
+SELECT
+    first_name,
+    salary,
+    salary + 100 sal√°rio_bonus
+FROM employees;
 
 
 
--- Execute simplesmente uma multiplicaÁ„o de valores ( 2 * 2)
+-- Adicione um b√¥nus de 25% do sal√°rio para todos os funcion√°rios
+
+SELECT
+    first_name,
+    salary,
+    salary * 0.25 bonus,
+    salary * ( 1.25) salario_com_bonus
+FROM employees;    
+    
+
+
+-- Execute simplesmente uma multiplica√ß√£o de valores ( 2 * 2)
+-- Usando a tabela dual para fazer o calculo particularidade do oracle.
+
+
+SELECT 2*2
+FROM dual;
 
 
 
 -- Retorne a data atual do sistema
 
 
-
+SELECT sysdate
+FROM dual;
 
 
 
 -- XI. DISTINCT: RETORNANDO VALORES DISTINTOS DA TABELA
 
 
--- Qual È o total de departamentos? FaÁa esta an·lise em cima da tabela
+-- Qual √© o total de departamentos? Fa√ßa esta an√°lise em cima da tabela
 
 
-
--- Retorne os valores distintos de nomes completos dos funcion·rios
-
+SELECT DISTINCT department_id  FROM employees;
 
 
+-- Retorne os valores distintos de nomes completos dos funcion√°rios
+
+SELECT 
+    DISTINCT  first_name, last_name
+FROM employees;
