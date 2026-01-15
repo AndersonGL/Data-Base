@@ -274,14 +274,14 @@ Banco NoSQL do Google, muito usado em apps mobile.
 -   Integração excelente com apps mobile\
 -   Autenticação integrada
 
-### 👎 Pontos fracos
+## 👎 Pontos fracos
 
 -   Consultas limitadas\
 -   Custos podem aumentar
 
 ------------------------------------------------------------------------
 
-# 📊 Tabela Comparativa
+## 📊 Tabela Comparativa
 
   Banco        Tipo         Uso Ideal            Vantagem Principal
   ------------ ------------ -------------------- ----------------------
@@ -295,3 +295,7 @@ Banco NoSQL do Google, muito usado em apps mobile.
   Firebase     NoSQL        Apps mobile          Realtime
 
 ------------------------------------------------------------------------
+
+### 🟫 Modelagem de Banco de Dados
+
+
