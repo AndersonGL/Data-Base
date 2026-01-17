@@ -4,8 +4,8 @@
 
 -- I. ORDENANDO DADOS DE UMA TABELA: ORDER BY
 
--- O comando ORDER BY é usado para ordenar os dados de uma tabela, a partir de uma coluna.
--- A sua sintaxe é a seguinte:
+-- O comando ORDER BY ï¿½ usado para ordenar os dados de uma tabela, a partir de uma coluna.
+-- A sua sintaxe ï¿½ a seguinte:
 
 /*
 SELECT coluna1, coluna2, ...
@@ -13,9 +13,9 @@ FROM tabela
 ORDER BY coluna1 [ASC/DESC]
 */
 
--- Onde ASC significa uma ordenação CRESCENTE, enquanto DESC significa uma ordenação DECRESCENTE.
+-- Onde ASC significa uma ordenaï¿½ï¿½o CRESCENTE, enquanto DESC significa uma ordenaï¿½ï¿½o DECRESCENTE.
 
--- Também podemos ordenar a tabela por mais de uma coluna:
+-- Tambï¿½m podemos ordenar a tabela por mais de uma coluna:
 
 /*
 SELECT coluna1, coluna2, ...
@@ -25,45 +25,48 @@ ORDER BY coluna1 [ASC/DESC], coluna2 [ASC/DESC], ...
 
 
 
--- II. ORDER BY: APLICAÇÃO
+-- II. ORDER BY: APLICAï¿½ï¿½O
 
--- 1. Comando ORDER BY com coluna de NÚMEROS
+-- 1. Comando ORDER BY com coluna de Nï¿½MEROS
 
--- a) Faça uma ordenação na tabela EMPLOYEES para visualizar os funcionários do menor
--- para o maior salário.
+-- a) Faï¿½a uma ordenaï¿½ï¿½o na tabela EMPLOYEES para visualizar os funcionï¿½rios do menor
+-- para o maior salï¿½rio.
 
 SELECT * FROM employees
-ORDER BY employee_id
-FETCH NEXT 5 ROWS ONLY;
+ORDER BY salary ASC; --  ORDER BY salary; -- ASC por padrï¿½o
 
--- b) Faça uma ordenação na tabela EMPLOYEES para visualizar os funcionários do maior
--- para o menor salário.
+--SELECT * FROM employees
+--ORDER BY employee_id
+--FETCH NEXT 5 ROWS ONLY;
+
+-- b) Faï¿½a uma ordenaï¿½ï¿½o na tabela EMPLOYEES para visualizar os funcionï¿½rios do maior
+-- para o menor salï¿½rio.
 
 SELECT * FROM employees
 ORDER BY salary DESC;
 
 -- 1.2. Comando ORDER BY com coluna de TEXTOS
 
--- a) Ordene a tabela de EMPLOYEES para mostrar os funcionários em ordem alfabética.
+-- a) Ordene a tabela de EMPLOYEES para mostrar os funcionï¿½rios em ordem alfabï¿½tica.
 
 SELECT * FROM employees
 ORDER BY first_name;
 
--- b) Ordene a tabela de EMPLOYEES para mostrar os funcionários em ordem "anti"-alfabética.
+-- b) Ordene a tabela de EMPLOYEES para mostrar os funcionï¿½rios em ordem "anti"-alfabï¿½tica.
 
 SELECT * FROM employees
 ORDER BY first_name DESC;
 
 -- 1.3. Comando ORDER BY com coluna de DATAS
 
--- a) Ordene a tabela de EMPLOYEES para mostrar os funcionários de acordo com a data de
--- contratação: da mais antiga pra mais recente.
+-- a) Ordene a tabela de EMPLOYEES para mostrar os funcionï¿½rios de acordo com a data de
+-- contrataï¿½ï¿½o: da mais antiga pra mais recente.
 
 SELECT * FROM employees
 ORDER BY hire_date;
 
--- b) Ordene a tabela de EMPLOYEES para mostrar os funcionários de acordo com a data de
--- contratação: da mais recente pra mais antiga.
+-- b) Ordene a tabela de EMPLOYEES para mostrar os funcionï¿½rios de acordo com a data de
+-- contrataï¿½ï¿½o: da mais recente pra mais antiga.
 
 SELECT * FROM employees
 ORDER BY hire_date DESC;
@@ -71,7 +74,7 @@ ORDER BY hire_date DESC;
 
 -- 1.4. Comando ORDER BY com mais de uma coluna
 
--- a) Alguns funcionários possuem o mesmo first_name (por exemplo, o JAMES).
+-- a) Alguns funcionï¿½rios possuem o mesmo first_name (por exemplo, o JAMES).
 -- Ordene a tabela EMPLOYEES de acordo com first_name e last_name para fazer o desempate. 
 
 SELECT * FROM employees
@@ -79,7 +82,7 @@ ORDER BY first_name ASC, last_name ASC;
 
 -- 1.5. Comando ORDER BY com NULLS FIRST e NULLS LAST.
 
--- a) A coluna MANAGER_ID da tabela DEPARTMENTS possui valores nulos. Faça uma ordenação dessa
+-- a) A coluna MANAGER_ID da tabela DEPARTMENTS possui valores nulos. Faï¿½a uma ordenaï¿½ï¿½o dessa
 -- coluna utilizando NULLS FIRST e NULLS LAST.
 
 SELECT * FROM departments
@@ -115,7 +118,7 @@ FETCH NEXT 12 ROWS WITH TIES;
 -- c) Limitando por um percentual de linhas
 -- FETCH NEXT N PERCENT ROWS ONLY
 
--- Retorne os 10% funcionários de salário mais alto.
+-- Retorne os 10% funcionï¿½rios de salï¿½rio mais alto.
 
 SELECT *
 FROM employees
@@ -126,7 +129,7 @@ FETCH NEXT 10 PERCENT ROWS ONLY;
 -- d) Criando um OFFSET (deslocamento) de linhas
 -- OFFSET N ROWS
 
--- Retorne os 10 primeiros funcionários logo após os 5 primeiros (ordenando por employee_id).
+-- Retorne os 10 primeiros funcionï¿½rios logo apï¿½s os 5 primeiros (ordenando por employee_id).
 
 SELECT *
 FROM employees
@@ -138,7 +141,7 @@ FETCH NEXT 10 ROWS ONLY;
 
 -- III. FILTRANDO DADOS DE UMA TABELA: COMANDO WHERE
 
--- O comando WHERE é usado para para filtrar tabelas em um banco de dados. Sua sintaxe é muito simples:
+-- O comando WHERE ï¿½ usado para para filtrar tabelas em um banco de dados. Sua sintaxe ï¿½ muito simples:
 
 /*
 SELECT coluna1, coluna2, ...
@@ -146,23 +149,23 @@ FROM tabela
 WHERE condicao;
 */
 
--- Dentro de 'condicao' podemos usar uma série de operadores, como: IN, BETWEEN, LIKE, AND, OR,
--- e assum vai. Veremos vários exemplos de aplicação.
+-- Dentro de 'condicao' podemos usar uma sï¿½rie de operadores, como: IN, BETWEEN, LIKE, AND, OR,
+-- e assum vai. Veremos vï¿½rios exemplos de aplicaï¿½ï¿½o.
 
 
--- IV. FILTRANDO NÚMEROS, TEXTOS E DATAS
+-- IV. FILTRANDO Nï¿½MEROS, TEXTOS E DATAS
 
--- 1.1. Filtros de número, texto e data.
+-- 1.1. Filtros de nï¿½mero, texto e data.
 
 -- a) Filtre a tabela EMPLOYEES e retorne apenas 
--- os funcionários do departamento ID = 100
+-- os funcionï¿½rios do departamento ID = 100
 
 SELECT employee_id, first_name, salary, department_id
 FROM employees
 WHERE department_id = 100;
 
 -- b) Filtre a tabela JOBS e retorne aqueles que 
--- tem um salário mínimo maior que 6000
+-- tem um salï¿½rio mï¿½nimo maior que 6000
 
 SELECT *
 FROM jobs
@@ -170,7 +173,7 @@ WHERE min_salary > 6000;
 
 
 -- c) Filtre a tabela EMPLOYEES para retornar apenas o job_id = ST_MAN.
--- Cuidado: Oracle é case sensitive.
+-- Cuidado: Oracle ï¿½ case sensitive.
 
 SELECT
     first_name,
@@ -180,8 +183,8 @@ SELECT
 FROM employees
 WHERE job_id = 'ST_MAN';
 
--- d) Filtre a tabela EMPLOYEES para mostrar apenas os funcionários que foram contratados
--- após o dia 01/01/00
+-- d) Filtre a tabela EMPLOYEES para mostrar apenas os funcionï¿½rios que foram contratados
+-- apï¿½s o dia 01/01/00
 
 SELECT
     *
@@ -195,7 +198,7 @@ WHERE hire_date >= '01/01/00';
 
 /*
 -- AND
--- Todas as condições devem ser VERDADEIRAS
+-- Todas as condiï¿½ï¿½es devem ser VERDADEIRAS
 
 SELECT coluna1, coluna2, ...
 FROM tabela
@@ -204,7 +207,7 @@ WHERE condicao1 AND condicao2;
 
 /*
 -- OR
--- Basta que 1 condição seja VERDADEIRA
+-- Basta que 1 condiï¿½ï¿½o seja VERDADEIRA
 
 SELECT coluna1, coluna2, ...
 FROM tabela
@@ -213,19 +216,19 @@ WHERE condicao1 AND condicao2;
 
 
 
--- a) Quais funcionários têm o JOB_ID = 'IT_PROG' e SALARY >= 5000?
+-- a) Quais funcionï¿½rios tï¿½m o JOB_ID = 'IT_PROG' e SALARY >= 5000?
 
 SELECT * FROM employees
 WHERE job_id = 'IT_PROG' AND salary >= 5000;
 
 
--- b) Quais funcionários são do departamento 90 ou 100?
+-- b) Quais funcionï¿½rios sï¿½o do departamento 90 ou 100?
 
 SELECT * FROM employees
 WHERE department_id = 90 OR department_id = 100
 ORDER BY department_id DESC;
 
--- c) Faça um filtro pra mostrar apenas os funcionários que NÃO são do departamento 90.
+-- c) Faï¿½a um filtro pra mostrar apenas os funcionï¿½rios que Nï¿½O sï¿½o do departamento 90.
 
 SELECT * FROM employees
 WHERE NOT department_id = 90;
@@ -233,7 +236,7 @@ WHERE NOT department_id = 90;
 
 -- VI. Operador LIKE, NOT LIKE e Wildcards
 
--- O operador LIKE permite que a gente faça filtros que buscam um padrão dentro de uma coluna.
+-- O operador LIKE permite que a gente faï¿½a filtros que buscam um padrï¿½o dentro de uma coluna.
 
 /*
 -- Sintaxe
@@ -243,17 +246,17 @@ FROM tabela
 WHERE coluna1 LIKE 'padrao';
 */
 
--- a) Quais funcionários possuem um JOB_ID que começam com o texto: 'ST'?
+-- a) Quais funcionï¿½rios possuem um JOB_ID que comeï¿½am com o texto: 'ST'?
 
 SELECT * FROM employees
 WHERE job_id LIKE 'ST%';
 
--- b) Quais funcionários possuem um JOB_ID que termina com o texto: 'MAN'?
+-- b) Quais funcionï¿½rios possuem um JOB_ID que termina com o texto: 'MAN'?
 
 SELECT * FROM employees
 WHERE job_id LIKE '%MAN';
 
--- c) O telefone é formado por 3 partes: AAA.BBB.CCCC. Quais telefones têm a 2ª parte igual a 123?
+-- c) O telefone ï¿½ formado por 3 partes: AAA.BBB.CCCC. Quais telefones tï¿½m a 2ï¿½ parte igual a 123?
 
 SELECT * FROM employees
 WHERE phone_number LIKE '____123_____';
@@ -274,27 +277,27 @@ WHERE coluna1 BETWEEN valor1 AND valor2;
 */
 
 
--- a) Selecione os funcionários que recebam um salário ENTRE 10.000 e 30.000.
+-- a) Selecione os funcionï¿½rios que recebam um salï¿½rio ENTRE 10.000 e 30.000.
 
 SELECT * FROM employees
 WHERE salary BETWEEN 10000 AND 30000;
 
--- b) Selecione os funcionários que têm nomes começando com a letra 'A' até a letra 'D'.
+-- b) Selecione os funcionï¿½rios que tï¿½m nomes comeï¿½ando com a letra 'A' atï¿½ a letra 'D'.
 
 SELECT * FROM employees
 WHERE first_name BETWEEN 'A' AND 'D';
 
--- c) Selecione os funcionários que foram contratados entre as datas '01/01/99' e 31/12/00'
+-- c) Selecione os funcionï¿½rios que foram contratados entre as datas '01/01/99' e 31/12/00'
 
 SELECT * FROM employees
 WHERE hire_date BETWEEN '01/01/99' AND '31/12/00';
 
--- d) Utilize o NOT para fazer a negação dos exemplos anteriores.
+-- d) Utilize o NOT para fazer a negaï¿½ï¿½o dos exemplos anteriores.
 
 
 -- VIII. OPERADORES IN e NOT IN
 
--- O operador IN permite especificar múltiplos valores no filtro.
+-- O operador IN permite especificar mï¿½ltiplos valores no filtro.
 
 /*
 -- Sintaxe
@@ -304,12 +307,12 @@ FROM tabela
 WHERE coluna1 IN (valor1, valor2, valor3, ...);
 */
 
--- a) Selecione os funcionários que são de um dos seguintes departamentos: 30, 50, 80.
+-- a) Selecione os funcionï¿½rios que sï¿½o de um dos seguintes departamentos: 30, 50, 80.
 
 SELECT * FROM employees
 WHERE department_id IN (30, 50, 80);
 
--- b) Selecione os funcionários que NÃO são dos departamentos acima.
+-- b) Selecione os funcionï¿½rios que Nï¿½O sï¿½o dos departamentos acima.
 
 SELECT * FROM employees
 WHERE department_id NOT IN (30, 50, 80);
@@ -327,25 +330,25 @@ FROM tabela
 WHERE coluna1 IS NULL;
 */
 
--- a) Quais funcionários têm o percentual de comissão igual a (null)?
+-- a) Quais funcionï¿½rios tï¿½m o percentual de comissï¿½o igual a (null)?
 
 SELECT * FROM employees
 WHERE commission_pct IS NULL;
 
--- b) Quais funcionários têm o percentual de comissão diferente de null.
+-- b) Quais funcionï¿½rios tï¿½m o percentual de comissï¿½o diferente de null.
 
 SELECT * FROM employees
 WHERE commission_pct IS NOT NULL;
 
 
--- X. REGRAS DE PRECEDÊNCIA
+-- X. REGRAS DE PRECEDï¿½NCIA
 
--- Quando utilizamos diversos filtros em conjunto, começa a ficar confuso a ordem que cada
--- filtro será executado. Utilizamos os parênteses para especificar qual é a ordem de prioridade
--- de execução dos filtros. Caso contrário, a execução será feita na seguinte ordem:
+-- Quando utilizamos diversos filtros em conjunto, comeï¿½a a ficar confuso a ordem que cada
+-- filtro serï¿½ executado. Utilizamos os parï¿½nteses para especificar qual ï¿½ a ordem de prioridade
+-- de execuï¿½ï¿½o dos filtros. Caso contrï¿½rio, a execuï¿½ï¿½o serï¿½ feita na seguinte ordem:
 
 
--- 1. Condições de comparação
+-- 1. Condiï¿½ï¿½es de comparaï¿½ï¿½o
 -- 2. IS NULL, LIKE, IN
 -- 3. BETWEEN
 -- 4. NOT
@@ -353,7 +356,7 @@ WHERE commission_pct IS NOT NULL;
 -- 6. OR
 
 
--- No exemplo abaixo, qual é o resultado esperado?
+-- No exemplo abaixo, qual ï¿½ o resultado esperado?
 
 SELECT first_name, job_id, salary
 FROM employees
@@ -361,26 +364,26 @@ WHERE job_id = 'IT_PROG' OR job_id = 'ST_MAN' AND salary > 5000;
 
 
 
--- X1. VARIÁVEIS DE SUBSTITUIÇÃO
+-- X1. VARIï¿½VEIS DE SUBSTITUIï¿½ï¿½O
 
--- As variáveis de substituição nos permitem interagir com a nossa consulta ao abrir uma
--- janela para input de dados por parte do usuário.
+-- As variï¿½veis de substituiï¿½ï¿½o nos permitem interagir com a nossa consulta ao abrir uma
+-- janela para input de dados por parte do usuï¿½rio.
 
 
--- a) Faça uma consulta dinâmica à tabela EMPLOYEES para que seja retornado o funcionário
--- de id informado pelo usuário.
+-- a) Faï¿½a uma consulta dinï¿½mica ï¿½ tabela EMPLOYEES para que seja retornado o funcionï¿½rio
+-- de id informado pelo usuï¿½rio.
 
 SELECT * FROM employees
 WHERE employee_id = &employee_id;
 
--- b) Faça uma consulta à tabela DEPARTMENTS para que seja retornado as informações do departamento
--- department_name informado pelo usuário (teste com Marketing, IT, Sales).
+-- b) Faï¿½a uma consulta ï¿½ tabela DEPARTMENTS para que seja retornado as informaï¿½ï¿½es do departamento
+-- department_name informado pelo usuï¿½rio (teste com Marketing, IT, Sales).
 
 SELECT * FROM departments
 WHERE department_name = '&department_name';
 
--- c) Faça uma consulta à tabela EMPLOYEES e retorne os funcionários com o salário entre um range
--- da escolha do usuário.
+-- c) Faï¿½a uma consulta ï¿½ tabela EMPLOYEES e retorne os funcionï¿½rios com o salï¿½rio entre um range
+-- da escolha do usuï¿½rio.
 
 SELECT * FROM employees
 WHERE salary BETWEEN &salary AND &salary;
