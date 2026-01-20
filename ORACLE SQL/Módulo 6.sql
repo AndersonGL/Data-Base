@@ -1,11 +1,11 @@
-/***  FUNÇÕES SINGLE ROW ***
+/***  FUNï¿½ï¿½ES SINGLE ROW ***
 *
 */
 
--- I. FUNÇÕES DE TEXTO: LOWER, UPPER, INITCAP, CONCAT, SUBSTR, LENGTH, INSTR, 
+-- I. FUNï¿½ï¿½ES DE TEXTO: LOWER, UPPER, INITCAP, CONCAT, SUBSTR, LENGTH, INSTR, 
 -- LPAD, RPAD e REPLACE
 
--- 1. LOWER: Coloca todos os caracteres de uma palavra em minúsculas.
+-- 1. LOWER: Coloca todos os caracteres de uma palavra em minï¿½sculas.
 
 SELECT 
     first_name,
@@ -13,7 +13,7 @@ SELECT
 FROM employees;
 
 
--- 2. UPPER: Coloca todos os caracteres de uma palavra em MAIÚSCULAS.
+-- 2. UPPER: Coloca todos os caracteres de uma palavra em MAIï¿½SCULAS.
 
 SELECT 
     first_name,
@@ -23,7 +23,7 @@ FROM employees;
 
 
 
--- 3. INITCAP: Deixa o primeiro caractere de cada palavra em MAIÚSCULA e o resto em minúscula.
+-- 3. INITCAP: Deixa o primeiro caractere de cada palavra em MAIï¿½SCULA e o resto em minï¿½scula.
 
 SELECT 
     job_id,
@@ -40,36 +40,13 @@ WHERE UPPER(first_name) = 'DAVID';
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
--- 4. CONCAT: Junta dois textos em 1 só. Tem a mesma aplicação do ||.
+-- 4. CONCAT: Junta dois textos em 1 sï¿½. Tem a mesma aplicaï¿½ï¿½o do ||.
 
 SELECT
     first_name,
     last_name,
     CONCAT(first_name, CONCAT(' ', last_name)) nome_completo
 FROM employees;
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -88,7 +65,7 @@ FROM employees;
 
 
 
--- 6. INSTR: Retorna a posição de um caractere dentro de um texto.
+-- 6. INSTR: Retorna a posiï¿½ï¿½o de um caractere dentro de um texto.
 
 SELECT
     job_id,
@@ -114,7 +91,7 @@ FROM employees;
 
 
 
--- 8. LPAD: Cria um novo texto com tamanho N, alinha o texto antigo à direita e completa 
+-- 8. LPAD: Cria um novo texto com tamanho N, alinha o texto antigo ï¿½ direita e completa 
 -- os caracteres restantes com o caractere especificado.
 
 SELECT
@@ -130,14 +107,7 @@ FROM employees;
 
 
 
-
-
-
-
-
-
-
--- 9. RPAD: Cria um novo texto com tamanho N, alinha o texto antigo à esquerda e completa 
+-- 9. RPAD: Cria um novo texto com tamanho N, alinha o texto antigo ï¿½ esquerda e completa 
 -- os caracteres restantes com o caractere especificado.
 
 SELECT
@@ -167,7 +137,7 @@ FROM employees;
 
 
 
--- II. FUNÇÕES NUMÉRICAS: ROUND, TRUNC e MOD
+-- II. FUNï¿½ï¿½ES NUMï¿½RICAS: ROUND, TRUNC e MOD
 
 -- 1. ROUND: Arredonda um valor para a quantidade de casas decimais especificada.
 
@@ -189,7 +159,7 @@ FROM dual;
 
 
 
--- 3. MOD: Retorna o resto de uma divisão.
+-- 3. MOD: Retorna o resto de uma divisï¿½o.
 
 SELECT 
     MOD(10, 4) resto
@@ -205,7 +175,7 @@ FROM dual;
 
 
 
--- III. FUNÇÕES DE DATA: MONTHS_BETWEEN, ADD_MONTHS, NEXT_DAY, LAST_DAY, EXTRACT
+-- III. FUNï¿½ï¿½ES DE DATA: MONTHS_BETWEEN, ADD_MONTHS, NEXT_DAY, LAST_DAY, EXTRACT
 
 -- 1. SYSDATE: Retorna a data atual do sistema, no formato 'DD/MM/YY'.
 
@@ -225,7 +195,7 @@ FROM dual;
 
 
 
--- 2. MONTHS_BETWEEN: Retorna o número de meses entre duas datas.
+-- 2. MONTHS_BETWEEN: Retorna o nï¿½mero de meses entre duas datas.
 
 SELECT
     first_name,
@@ -251,10 +221,10 @@ FROM dual;
 
 
 
--- 4. NEXT_DAY: Retorna o próximo dia relativo à data especificada.
+-- 4. NEXT_DAY: Retorna o prï¿½ximo dia relativo ï¿½ data especificada.
 
--- SUNDAY: domingo; MONDAY: segunda; TUESDAY: terça; WEDNESDAY: quarta; THURSDAY: quinta; 
--- FRIDAY: sexta; SATURDAY: sábado
+-- SUNDAY: domingo; MONDAY: segunda; TUESDAY: terï¿½a; WEDNESDAY: quarta; THURSDAY: quinta; 
+-- FRIDAY: sexta; SATURDAY: sï¿½bado
 
 SELECT
     sysdate,
@@ -262,13 +232,16 @@ SELECT
 FROM dual;
 
 
+SELECT
+    SYSDATE,
+    NEXT_DAY(SYSDATE, 'DOMINGO') -- Funcionou assim em portuguÃªs
+FROM dual;
 
 
 
 
 
-
--- 5. LAST_DAY: Retorna o último dia do mês.
+-- 5. LAST_DAY: Retorna o ï¿½ltimo dia do mï¿½s.
 
 SELECT
     sysdate,
@@ -277,7 +250,7 @@ FROM dual;
 
 
 
--- 6. EXTRACT: Extrai informações de uma data
+-- 6. EXTRACT: Extrai informaï¿½ï¿½es de uma data
 
 SELECT
     sysdate data_atual,
