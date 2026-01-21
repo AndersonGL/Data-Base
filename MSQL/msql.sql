@@ -1,1 +1,0 @@
- - Usar o Xampp para acessar o PhpMyAdmin
