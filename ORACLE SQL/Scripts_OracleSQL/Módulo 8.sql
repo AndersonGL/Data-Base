@@ -1,6 +1,6 @@
--- Funções de Agregação e Agrupamentos
+-- Funï¿½ï¿½es de Agregaï¿½ï¿½o e Agrupamentos
 
--- I. Funções de Agregação: COUNT, SUM, AVG, MIN, MAX
+-- I. Funï¿½ï¿½es de Agregaï¿½ï¿½o: COUNT, SUM, AVG, MIN, MAX
 
 -- 1. COUNT: Faz a contagem de valores de uma coluna. 
 
@@ -18,29 +18,29 @@ FROM tabela;
 
 
 
--- a) Descubra o total de funcionários a partir da coluna de EMPLOYEE_ID da tabela EMPLOYEES.
+-- a) Descubra o total de funcionï¿½rios a partir da coluna de EMPLOYEE_ID da tabela EMPLOYEES.
 
 SELECT
     COUNT(employee_id) total_funcionarios
 FROM employees;
 
--- b) Descubra o total de funcionários a partir da coluna de FIRST_NAME da tabela EMPLOYEES.
+-- b) Descubra o total de funcionï¿½rios a partir da coluna de FIRST_NAME da tabela EMPLOYEES.
 
 SELECT
     COUNT(first_name) total_funcionarios
 FROM employees;
 
--- c) Descubra o total de funcionários a partir da coluna de COMMISSION_PCT da tabela EMPLOYEES.
--- É possível?
+-- c) Descubra o total de funcionï¿½rios a partir da coluna de COMMISSION_PCT da tabela EMPLOYEES.
+-- ï¿½ possï¿½vel?
 
 SELECT
     COUNT(commission_pct) total_funcionarios
 FROM employees;
 
 
--- 2. COUNT(*): Faz a contagem de valores de uma coluna, sejam eles nulos ou não.
+-- 2. COUNT(*): Faz a contagem de valores de uma coluna, sejam eles nulos ou nï¿½o.
 
--- a) Descubra o total de funcionários na tabela EMPLOYEES independente da coluna a ser usada.
+-- a) Descubra o total de funcionï¿½rios na tabela EMPLOYEES independente da coluna a ser usada.
 
 SELECT
     COUNT(*) total_funcionarios
@@ -49,8 +49,8 @@ FROM employees;
 
 -- 3. COUNT DISTINCT: Conta os valores distintos de uma coluna.
 
--- a) Descubra quais são os valores distintos de JOB_ID na tabela EMPLOYEES.
--- Qual é o total de valores distintos?
+-- a) Descubra quais sï¿½o os valores distintos de JOB_ID na tabela EMPLOYEES.
+-- Qual ï¿½ o total de valores distintos?
 
 SELECT
     job_id
@@ -78,14 +78,14 @@ FROM tabela;
 */
 
 
--- a) Qual é a soma total de salário dos funcionários?
+-- a) Qual ï¿½ a soma total de salï¿½rio dos funcionï¿½rios?
 
 SELECT
     SUM(salary) total_salario
 FROM employees;
 
 
--- 5. AVG: Faz a média de valores de uma coluna.
+-- 5. AVG: Faz a mï¿½dia de valores de uma coluna.
 
 /*
 Sintaxe
@@ -95,10 +95,16 @@ SELECT
 FROM tabela;
 */
 
--- a) Qual é a média salarial dos funcionários?
+-- a) Qual ï¿½ a mï¿½dia salarial dos funcionï¿½rios?
 
 SELECT
     AVG(salary) total_salario
+FROM employees;
+
+-- Arredondando duas casas com Round
+
+SELECT
+  ROUND(AVG(salary),2) media_salarial
 FROM employees;
 
 
@@ -113,7 +119,7 @@ FROM tabela;
 */
 
 
--- a) Qual é a maior de todos os salários?
+-- a) Qual ï¿½ a maior de todos os salï¿½rios?
 
 SELECT
     MAX(salary) total_salario
@@ -130,15 +136,15 @@ SELECT
 FROM tabela;
 */
 
--- a) Qual é a menor de todos os salários?
+-- a) Qual ï¿½ a menor de todos os salï¿½rios?
 
 SELECT
     MIN(salary) total_salario
 FROM employees;
 
 
--- 8. Cuidado com valores nulos no cálculo das funções de agregação.
--- a) Qual é a média de comissão dos funcionários?
+-- 8. Cuidado com valores nulos no cï¿½lculo das funï¿½ï¿½es de agregaï¿½ï¿½o.
+-- a) Qual ï¿½ a mï¿½dia de comissï¿½o dos funcionï¿½rios?
 
 SELECT 
     AVG(NVL(commission_pct, 0)) media_comissao
@@ -156,22 +162,22 @@ FROM tabela
 GROUP BY coluna1;
 
 
--- Na hora de criar agrupamentos, podemos utilizar uma série de comandos, na seguinte ordem:
+-- Na hora de criar agrupamentos, podemos utilizar uma sï¿½rie de comandos, na seguinte ordem:
 
 SELECT
     coluna,
     funcao_agregacao()
 FROM tabela
-[WHERE condicao]         -- Condição para selecionar as linhas desejadas da tabela
+[WHERE condicao]         -- Condiï¿½ï¿½o para selecionar as linhas desejadas da tabela
 GROUP BY coluna          -- Comando para criar o agrupamento
-[HAVING condicao]        -- Condição para selecionar os agrupamentos desejados
+[HAVING condicao]        -- Condiï¿½ï¿½o para selecionar os agrupamentos desejados
 [ORDER BY coluna];        -- Comando para ordenar a consulta final
 
 */
 
 
 -- 1. GROUP BY: Agrupa os dados a partir de uma ou mais colunas da tabela.
--- a) Faça um agrupamento da quantidade total de funcionários por JOB_ID.
+-- a) Faï¿½a um agrupamento da quantidade total de funcionï¿½rios por JOB_ID.
 
 SELECT
     job_id,
@@ -179,7 +185,7 @@ SELECT
 FROM employees
 GROUP BY job_id;
 
--- b) Faça um agrupamento da soma total de salário por JOB_ID.
+-- b) Faï¿½a um agrupamento da soma total de salï¿½rio por JOB_ID.
 
 SELECT
     job_id,
@@ -187,7 +193,7 @@ SELECT
 FROM employees
 GROUP BY job_id;
 
--- c) Faça um agrupamento da soma total de salário por DEPARTMENT_ID e JOB_ID.
+-- c) Faï¿½a um agrupamento da soma total de salï¿½rio por DEPARTMENT_ID e JOB_ID.
 
 SELECT
     department_id,
@@ -198,8 +204,8 @@ GROUP BY department_id, job_id
 ORDER BY department_id;
 
 
--- 2. Funções de agrupamento aninhadas.
--- a) Qual é a maior média salarial dentre todos os departamentos.
+-- 2. Funï¿½ï¿½es de agrupamento aninhadas.
+-- a) Qual ï¿½ a maior mï¿½dia salarial dentre todos os departamentos.
 
 SELECT MAX(AVG(salary))
 FROM employees
@@ -209,8 +215,8 @@ GROUP BY department_id;
 -- 3. GROUP BY + WHERE: Agrupa os dados a partir de uma ou mais colunas da tabela; mas antes,
 -- faz um filtro na tabela a ser agrupada.
 
--- a) Faça um agrupamento de quantidade total de funcionários por JOB_ID, mas apenas para os
--- funcionários que foram contratados no ano de 1998.
+-- a) Faï¿½a um agrupamento de quantidade total de funcionï¿½rios por JOB_ID, mas apenas para os
+-- funcionï¿½rios que foram contratados no ano de 1998.
 
 SELECT
     job_id,
@@ -220,11 +226,11 @@ WHERE TO_CHAR(hire_date, 'YYYY')  = '1998'
 GROUP BY job_id;
 
 
--- 4. GROUP BY + HAVING: Agrupa os dados a partir de uma ou mais colunas da tabela e após fazer
+-- 4. GROUP BY + HAVING: Agrupa os dados a partir de uma ou mais colunas da tabela e apï¿½s fazer
 -- o agrupamento, filtramos a tabela agrupada.
     
--- a) Faça um agrupamento de quantidade total de funcionários por JOB_ID. A agrupamento final
--- deve considerar apenas os JOB_ID com mais de 1 funcionário.
+-- a) Faï¿½a um agrupamento de quantidade total de funcionï¿½rios por JOB_ID. A agrupamento final
+-- deve considerar apenas os JOB_ID com mais de 1 funcionï¿½rio.
 
 SELECT
     job_id,
