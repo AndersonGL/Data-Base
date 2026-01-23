@@ -1,32 +1,32 @@
 -- Joins e Operadores SET
 
--- I. O que são Joins e Operadores SET?
+-- I. O que sï¿½o Joins e Operadores SET?
 /* 
 
-Joins são comandos que utilizamos para criar relações entre as tabelas e fazer com que seja
-possível trazer informações de uma tabela para outra tabela.
+Joins sï¿½o comandos que utilizamos para criar relaï¿½ï¿½es entre as tabelas e fazer com que seja
+possï¿½vel trazer informaï¿½ï¿½es de uma tabela para outra tabela.
 
-Já os operadores SET são comandos que usamos para trabalhar com conjuntos. Com eles, podemos
-fazer a união entre tabelas, fazer a interseção entre duas tabelas ou a subtração de tabelas.
+Jï¿½ os operadores SET sï¿½o comandos que usamos para trabalhar com conjuntos. Com eles, podemos
+fazer a uniï¿½o entre tabelas, fazer a interseï¿½ï¿½o entre duas tabelas ou a subtraï¿½ï¿½o de tabelas.
 
 
 */
 
 
--- II. Tabelas Dimensão e Fato. Chaves Primária e Estrangeira.
+-- II. Tabelas Dimensï¿½o e Fato. Chaves Primï¿½ria e Estrangeira.
 
 /*
 
-- Tabela Dimensão: É uma tabela que contém as características de determinado elemento.
-Por exemplo, uma tabela de clientes possui as características do elemento cliente. Nenhum dos
-elementos da tabela dimensão pode se repetir.
+- Tabela Dimensï¿½o: ï¿½ uma tabela que contï¿½m as caracterï¿½sticas de determinado elemento.
+Por exemplo, uma tabela de clientes possui as caracterï¿½sticas do elemento cliente. Nenhum dos
+elementos da tabela dimensï¿½o pode se repetir.
 
-- Tabela Fato: É uma tabela que contém os fatos de um negócio. Vendas, Contratos, Atendimentos.
-Geralmente é uma tabela bem grande, com centenas, milhares ou até milhões de linhas. 
+- Tabela Fato: ï¿½ uma tabela que contï¿½m os fatos de um negï¿½cio. Vendas, Contratos, Atendimentos.
+Geralmente ï¿½ uma tabela bem grande, com centenas, milhares ou atï¿½ milhï¿½es de linhas. 
 
-- Chave Primária: Coluna de uma tabela que identifica as linhas daquela tabela de forma única.
+- Chave Primï¿½ria: Coluna de uma tabela que identifica as linhas daquela tabela de forma ï¿½nica.
 
-- Chave Estrangeira: Coluna de uma tabela que será usada para se relacionar com a chave primária 
+- Chave Estrangeira: Coluna de uma tabela que serï¿½ usada para se relacionar com a chave primï¿½ria 
 de outra tabela.
 
 
@@ -35,7 +35,7 @@ de outra tabela.
 
 -- III. Joins
 -- 1. (INNER) JOIN: Realiza o relacionamento entre as tabelas e retorna apenas as linhas
--- que são comuns entre as duas tabelas.
+-- que sï¿½o comuns entre as duas tabelas.
 
 -- a) Utilize o (INNER) JOIN para relacionar as tabelas EMPLOYEES e DEPARTMENTS.
 
@@ -48,7 +48,7 @@ FROM employees
 JOIN departments
 ON employees.department_id = departments.department_id;
 
--- b) Faça o mesmo exercício anterior, mas dessa vez adicionando um ALIAS às tabelas.
+-- b) Faï¿½a o mesmo exercï¿½cio anterior, mas dessa vez adicionando um ALIAS ï¿½s tabelas.
 
 SELECT
     e.employee_id,
@@ -62,7 +62,7 @@ ON e.department_id = d.department_id;
 -- c) Utilize o (INNER) JOIN para relacionar as tabelas DEPARTMENTS e LOCATIONS.
 
 SELECT
-    d.department_id,
+    d.department_id,                -- d. *, Seleciona todas as colunas da tabela departments
     d.department_name,
     l.city,
     l.country_id
@@ -70,7 +70,7 @@ FROM departments d
 JOIN locations l
 ON d.location_id = l.location_id;
 
--- d) Faça um INNER JOIN entre múltiplas tabelas e relacione as tabelas 
+-- d) Faï¿½a um INNER JOIN entre mï¿½ltiplas tabelas e relacione as tabelas 
 -- EMPLOYEES, DEPARTMENTS, JOBS e LOCATIONS.
 
 SELECT
@@ -83,7 +83,7 @@ FROM employees e
 
 -- IV. SELF JOIN: Realiza o auto-relacionamento de uma tabela com ela mesma.
 
--- a) Como podemos visualizar a lista de funcionários e os respectivos gerentes em uma mesma tabela?
+-- a) Como podemos visualizar a lista de funcionï¿½rios e os respectivos gerentes em uma mesma tabela?
 
 SELECT
     e.employee_id,
@@ -94,8 +94,8 @@ ON e.manager_id = g.employee_id
 ORDER BY e.employee_id;
 
 
--- V. LEFT JOIN: Realiza o relacionamento entre as tabelas e retorna as linhas que são 
--- comuns entre as duas tabelas e também as linhas que existem apenas na tabela da ESQUERDA.
+-- V. LEFT JOIN: Realiza o relacionamento entre as tabelas e retorna as linhas que sï¿½o 
+-- comuns entre as duas tabelas e tambï¿½m as linhas que existem apenas na tabela da ESQUERDA.
 
 -- a) Utilize o LEFT JOIN para relacionar as tabelas EMPLOYEES e DEPARTMENTS.
 
@@ -108,8 +108,8 @@ FROM employees e LEFT JOIN departments d
 ON e.department_id = d.department_id;
 
 
--- VI. RIGHT JOIN: Realiza o relacionamento entre as tabelas e retorna as linhas que são 
--- comuns entre as duas tabelas e também as linhas que existem apenas na tabela da DIREITA.
+-- VI. RIGHT JOIN: Realiza o relacionamento entre as tabelas e retorna as linhas que sï¿½o 
+-- comuns entre as duas tabelas e tambï¿½m as linhas que existem apenas na tabela da DIREITA.
 
 -- a) Utilize o RIGHT JOIN para relacionar as tabelas EMPLOYEES e DEPARTMENTS.
 
@@ -139,7 +139,7 @@ ON e.department_id = d.department_id;
 
 -- VIII. CROSSJOIN: Realiza o produto cartesiano entre duas colunas.
 
--- a) Utilize o CROSS JOIN para fazer todas as combinações possíveis entre as colunas
+-- a) Utilize o CROSS JOIN para fazer todas as combinaï¿½ï¿½es possï¿½veis entre as colunas
 -- DEPARTMENT_NAME e JOB_TITLE.
 
 SELECT
@@ -165,7 +165,7 @@ AND d.department_id <= 30;
 
 -- Operadores SET (Operadores de Conjunto)
 
--- I. UNION ALL: Faz a união entre duas tabelas. As linhas inteiramente iguais são mantidas.
+-- I. UNION ALL: Faz a uniï¿½o entre duas tabelas. As linhas inteiramente iguais sï¿½o mantidas.
 
 SELECT
     employee_id, job_id, salary
@@ -180,7 +180,7 @@ ORDER BY employee_id;
 
 
 
--- II. UNION: Faz a união entre duas tabelas. As linhas inteiramente iguais são excluídas, ficando
+-- II. UNION: Faz a uniï¿½o entre duas tabelas. As linhas inteiramente iguais sï¿½o excluï¿½das, ficando
 -- apenas uma delas.
 
 SELECT
@@ -196,7 +196,7 @@ ORDER BY employee_id;
 
 
 
--- III. INTERSECT: Faz a interseção entre duas tabelas.
+-- III. INTERSECT: Faz a interseï¿½ï¿½o entre duas tabelas.
 
 SELECT
     employee_id, department_id, job_id, salary
@@ -210,7 +210,7 @@ WHERE department_id IN (30, 60, 90)
 ORDER BY employee_id;
 
 
--- IV. MINUS: Faz a 'subtração' entre duas tabelas.
+-- IV. MINUS: Faz a 'subtraï¿½ï¿½o' entre duas tabelas.
 
 SELECT
     employee_id, department_id, job_id, salary
