@@ -30,6 +30,7 @@ https://otn.oracle.com
 
 DESCRIBE employees;
 
+
 DESC departments;
 
 DESC jobs;
