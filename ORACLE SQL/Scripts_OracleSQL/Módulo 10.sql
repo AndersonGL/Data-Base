@@ -2,25 +2,25 @@
 *
 *
 
--- I. O que é CRUD e o que são os comandos DDL, DML e TCL.
+-- I. O que ï¿½ CRUD e o que sï¿½o os comandos DDL, DML e TCL.
 
-CRUD é um nome dado para as operações realizadas dentro de um banco de dados. É a sigla para:
+CRUD ï¿½ um nome dado para as operaï¿½ï¿½es realizadas dentro de um banco de dados. ï¿½ a sigla para:
 CREATE, READ, UPDATE e DELETE.
 
 De forma mais geral, podemos dividir os comandos dentro de um banco de dados em alguns grupos:
 
 - DDL: Data Definition Language
-São comandos para manipulação de objetos em um banco de dados.
+Sï¿½o comandos para manipulaï¿½ï¿½o de objetos em um banco de dados.
 
 Exemplos: CREATE, ALTER, TRUNCATE, DROP, COMMENT
 
 - DML: Data Manipulation Language
-São comandos para manipulação de dados em um banco de dados.
+Sï¿½o comandos para manipulaï¿½ï¿½o de dados em um banco de dados.
 
 Exemplos: INSERT, UPDATE, DELETE
 
 - TCL: Transact Control Language
-Comandos para controle de transações em um banco de dados.
+Comandos para controle de transaï¿½ï¿½es em um banco de dados.
 
 Exemplos: COMMIT, ROLLBACK e SAVEPOINT
 
@@ -32,7 +32,7 @@ SET autocommit OFF; */
 
 -- II. Tipos de Dados
 
--- Os dados armazenados dentro de um banco de dados poderão ser de uma série de tipos.
+-- Os dados armazenados dentro de um banco de dados poderï¿½o ser de uma sï¿½rie de tipos.
 -- Abaixo, listamos os mais comuns.
 
 -- 1. INT
@@ -54,6 +54,7 @@ SET autocommit OFF; */
 -- Coluna 3: sexo do tipo VARCHAR2
 -- Coluna 4: email do tipo VARCHAR2
 -- Coluna 5: data_nascimento do tipo DATE
+-- Coluna 6: cpf do tipo VARCHAR2
 
 CREATE TABLE clientes(
 	id_cliente INT,
@@ -103,7 +104,7 @@ CREATE TABLE vendas(
 );
 
 -- DML SELECT
--- Criadas as tabelas, podemos usar o comando SELECT para selecioná-las.
+-- Criadas as tabelas, podemos usar o comando SELECT para selecionï¿½-las.
 
 SELECT * FROM clientes;
 SELECT * FROM produtos;
@@ -115,9 +116,9 @@ SELECT * FROM vendas;
 -- Preenche a tabela CLIENTES
 
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
-    (1,  'André Martins',   'M', 'andre.m@gmail.com', '12/02/1989', '839.283.190-00');
+    (1,  'Andrï¿½ Martins',   'M', 'andre.m@gmail.com', '12/02/1989', '839.283.190-00');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
-    (2,  'Bárbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992', '351.391.410-02');
+    (2,  'Bï¿½rbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992', '351.391.410-02');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
     (3,  'Carol Freitas',   'F', 'carol@gmail.com', '23/04/1985', '139.274.921-12');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
@@ -150,9 +151,9 @@ INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, cus
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit) VALUES
     (6,  'Inspiron 15 3000',   'Dell', 'Notebook', 2800, 1100);
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit) VALUES
-    (7,  'Smart TV 4K',   'LG', 'Televisão', 1800, 700);
+    (7,  'Smart TV 4K',   'LG', 'Televisï¿½o', 1800, 700);
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit) VALUES
-    (8,  'Smart TV Crystal UHD 4K', 'Samsung', 'Televisão', 3000, 1200);
+    (8,  'Smart TV Crystal UHD 4K', 'Samsung', 'Televisï¿½o', 3000, 1200);
 
 -- Preenche a tabela VENDAS
 
@@ -179,7 +180,7 @@ INSERT INTO vendas(id_venda, data_venda, id_cliente, id_produto, quantidade) VAL
     
 
 -- V. DML UPDATE
--- Atualize o preço unitário do produto de ID = 1 para R$3900.
+-- Atualize o preï¿½o unitï¿½rio do produto de ID = 1 para R$3900.
 
 SELECT * FROM produtos;
 
@@ -214,24 +215,24 @@ DROP TABLE vendas;
 
 
 -- IX. DDL COMMENT
--- Crie comentários para tabelas e colunas do banco de dados.
+-- Crie comentï¿½rios para tabelas e colunas do banco de dados.
 
 
--- 1) Na tabela produtos, crie o seguinte comentário: 'Informações de Produtos'.
+-- 1) Na tabela produtos, crie o seguinte comentï¿½rio: 'Informaï¿½ï¿½es de Produtos'.
 
 DESC produtos;
 
 COMMENT ON TABLE produtos
-IS 'Informação de Produtos';
+IS 'Informaï¿½ï¿½o de Produtos';
 
 SELECT * FROM USER_TAB_COMMENTS;
 
--- Exclui um comentário na tabela
+-- Exclui um comentï¿½rio na tabela
 COMMENT ON TABLE produtos
 IS '';
 
 
--- 2) Crie um comentário na coluna MARCA da tabela PRODUTOS: 'Descreve a categoria do produto'.
+-- 2) Crie um comentï¿½rio na coluna MARCA da tabela PRODUTOS: 'Descreve a categoria do produto'.
 
 COMMENT ON COLUMN produtos.categoria
 IS 'Descreve a categoria do produto';
@@ -240,7 +241,7 @@ SELECT * FROM USER_COL_COMMENTS
 WHERE table_name = 'PRODUTOS';
 
 -- X. Comandos TCL
--- Utilize os comandos COMMIT, ROLLBACK e SAVEPOINT para controlar as transações.
+-- Utilize os comandos COMMIT, ROLLBACK e SAVEPOINT para controlar as transaï¿½ï¿½es.
 
 
 SELECT * FROM clientes;
@@ -257,7 +258,7 @@ ROLLBACK;
 SELECT * FROM clientes;
 
 INSERT INTO CLIENTES(ID_CLIENTE, NOME_CLIENTE, SEXO, EMAIL, DATA_NASCIMENTO) VALUES
-    (2,  'Bárbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992');
+    (2,  'Bï¿½rbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992');
     
 SAVEPOINT P1;
 
