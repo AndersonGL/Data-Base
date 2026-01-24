@@ -189,6 +189,15 @@ SET preco_unit = 4500
 WHERE id_produto = 1;
 
 
+-- Boa prática antes do UPDATE
+
+-- Sempre rode o SELECT primeiro:
+
+SELECT *
+FROM clientes
+WHERE id_produto = 1;
+
+
 
 -- VI. DML DELETE
 -- Exclua da tabela CLIENTES o cliente de ID = 10.
