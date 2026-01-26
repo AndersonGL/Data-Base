@@ -255,6 +255,9 @@ WHERE table_name = 'PRODUTOS';
 
 SELECT * FROM clientes;
 
+INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
+    (20,  'Leonardo ',  'M', 'leo@hotmail.com', '07/05/1992', '123.456.789-00');
+
 COMMIT;
 -- TCL COMMIT e ROLLBACK
 
@@ -337,6 +340,7 @@ ALTER TABLE clientes
 
 
 -- 3. Como excluir uma coluna
+
 
 
 ALTER TABLE clientes
