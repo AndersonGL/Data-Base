@@ -222,6 +222,11 @@ ALTER TABLE produtos
 DROP CONSTRAINT produtos_id_produto_pk CASCADE;
 
 
+-- Altera o nome de uma constraint criafa
+ALTER TABLE clientes
+RENAME CONSTRAINT clientes_cpg_un TO clientes_cpf_un;
+
+
 -- III. Viola��o de constraints
 
 -- Exemplo 1: Viola��o NOT NULL e CHECK
