@@ -1,13 +1,13 @@
-/* Constraints, Sequências e Índices
+/* Constraints, Sequï¿½ncias e ï¿½ndices
 *
 *
 
-Objetivo: Trabalhar com constraints e entender o que são sequências e índices.
+Objetivo: Trabalhar com constraints e entender o que sï¿½o sequï¿½ncias e ï¿½ndices.
 */
 
 -- I. CONSTRAINTS
--- Constraints no SQL são regras (restrições) que podemos definir para uma coluna de uma tabela.
--- Abaixo temos uma lista de restrições:
+-- Constraints no SQL sï¿½o regras (restriï¿½ï¿½es) que podemos definir para uma coluna de uma tabela.
+-- Abaixo temos uma lista de restriï¿½ï¿½es:
 
 -- 1. NOT NULL
 -- 2. UNIQUE
@@ -18,25 +18,25 @@ Objetivo: Trabalhar com constraints e entender o que são sequências e índices.
 
 
 -- 1. NOT NULL
--- Essa constraint não permite que sejam adicionados valores nulos na coluna.
+-- Essa constraint nï¿½o permite que sejam adicionados valores nulos na coluna.
 
 
 -- 2. UNIQUE
--- Identifica uma coluna de forma única, sem permitir valores duplicados (mas, permite NULL).
+-- Identifica uma coluna de forma ï¿½nica, sem permitir valores duplicados (mas, permite NULL).
 
 -- 3. CHECK
--- Verifica se o valor adicionado na coluna atende a uma determinada condição.
+-- Verifica se o valor adicionado na coluna atende a uma determinada condiï¿½ï¿½o.
 
 -- 4. DEFAULT
--- Retorna um valor default caso a coluna não seja preenchida.
+-- Retorna um valor default caso a coluna nï¿½o seja preenchida.
 
 -- 5. PRIMARY KEY
--- Uma CHAVE PRIMÁRIA (PRIMARY KEY) é uma coluna que identifica de forma única as linhas 
--- de uma tabela. Nenhum dos valores de uma coluna de chave primária deve ser nulo ou se repetir.
--- Será através dessa coluna que criaremos relações entre as tabelas.
+-- Uma CHAVE PRIMï¿½RIA (PRIMARY KEY) ï¿½ uma coluna que identifica de forma ï¿½nica as linhas 
+-- de uma tabela. Nenhum dos valores de uma coluna de chave primï¿½ria deve ser nulo ou se repetir.
+-- Serï¿½ atravï¿½s dessa coluna que criaremos relaï¿½ï¿½es entre as tabelas.
 
 -- 6. FOREIGN KEY
--- Uma CHAVE ESTRANGEIRA (FOREIGN KEY) é uma coluna que será relacionada com a CHAVE PRIMÁRIA
+-- Uma CHAVE ESTRANGEIRA (FOREIGN KEY) ï¿½ uma coluna que serï¿½ relacionada com a CHAVE PRIMï¿½RIA
 -- de uma outra tabela.
 
 DROP TABLE clientes;
@@ -49,12 +49,12 @@ DROP TABLE vendas;
 
 -- A tabela CLIENTES deve conter as seguintes colunas:
 
--- Coluna 1: id_cliente do tipo INT          --> Chave Primária
--- Coluna 2: nome_cliente do tipo VARCHAR2   --> Não aceita valores nulos
--- Coluna 3: sexo do tipo VARCHAR2           --> Não aceita valores nulos  
--- Coluna 4: email do tipo VARCHAR2          --> Não aceita valores nulos
--- Coluna 5: cpf do tipo VARCHAR2            --> Não aceita valores duplicados
--- Coluna 6: data_nascimento do tipo DATE    --> Não tem restrição
+-- Coluna 1: id_cliente do tipo INT          --> Chave Primï¿½ria
+-- Coluna 2: nome_cliente do tipo VARCHAR2   --> Nï¿½o aceita valores nulos
+-- Coluna 3: sexo do tipo VARCHAR2           --> Nï¿½o aceita valores nulos  
+-- Coluna 4: email do tipo VARCHAR2          --> Nï¿½o aceita valores nulos
+-- Coluna 5: cpf do tipo VARCHAR2            --> Nï¿½o aceita valores duplicados
+-- Coluna 6: data_nascimento do tipo DATE    --> Nï¿½o tem restriï¿½ï¿½o
 
 CREATE TABLE clientes(
 	id_cliente INT,
@@ -71,13 +71,14 @@ CREATE TABLE clientes(
 
 -- A tabela PRODUTOS deve conter as seguintes colunas:
 
--- Coluna 1: id_produto do tipo INT            --> Chave Primária
--- Coluna 2: nome_produto do tipo VARCHAR2     --> Não aceita valores nulos
--- Coluna 3: marca do tipo VARCHAR2            --> Não aceita valores nulos
--- Coluna 4: categoria do tipo VARCHAR2        --> Não aceita valores nulos
--- Coluna 5: preco_unit do tipo NUMBER         --> Não aceita valores nulos nem abaixo de zero
--- Coluna 6: custo_unit do tipo NUMBER         --> Não aceita valores nulos nem abaixo de zero
--- Coluna 7: estoque do tipo INT               --> Não aceita valores nulos nem abaixo de zero
+-- Coluna 1: id_produto do tipo INT            --> Chave Primï¿½ria
+-- Coluna 2: nome_produto do tipo VARCHAR2     --> Nï¿½o aceita valores nulos
+-- Coluna 3: marca do tipo VARCHAR2            --> Nï¿½o aceita valores nulos
+-- Coluna 4: categoria do tipo VARCHAR2        --> Nï¿½o aceita valores nulos
+-- Coluna 5: preco_unit do tipo NUMBER         --> Nï¿½o aceita valores nulos nem abaixo de zero
+-- Coluna 6: custo_unit do tipo NUMBER         --> Nï¿½o aceita valores nulos nem abaixo de zero
+-- Coluna 7: estoque do tipo INT               --> Nï¿½o aceita valores nulos nem abaixo de zero
+
 
 CREATE TABLE produtos(
 	id_produto INT,
@@ -93,17 +94,20 @@ CREATE TABLE produtos(
     CONSTRAINT produtos_estoque_ck CHECK(estoque > 0)
 );
 
+
 -- Tabela 3: VENDAS
 
 -- A tabela VENDAS deve conter as seguintes colunas:
 
--- Coluna 1: id_venda do tipo INT           --> Chave Primária
--- Coluna 2: data_venda do tipo DATE        --> Valor Padrão (sysdate) caso não seja preenchida
+-- Coluna 1: id_venda do tipo INT           --> Chave Primï¿½ria
+-- Coluna 2: data_venda do tipo DATE        --> Valor Padrï¿½o (sysdate) caso nï¿½o seja preenchida
 -- Coluna 3: id_cliente do tipo INT         --> Chave Estrangeira
 -- Coluna 4: id_produto do tipo INT         --> Chave Estrangeira
--- Coluna 5: quantidade do tipo NUMBER      --> Não aceita valores nulos
+-- Coluna 5: quantidade do tipo NUMBER      --> Nï¿½o aceita valores nulos
+
 
 CREATE TABLE vendas(
+    
 	id_venda INT,
 	data_venda DATE DEFAULT SYSDATE,
 	id_cliente INT,
@@ -114,8 +118,9 @@ CREATE TABLE vendas(
     CONSTRAINT vendas_id_produto_fk FOREIGN KEY(id_produto) REFERENCES produtos(id_produto)
 );
 
+
 -- DML SELECT
--- Criadas as tabelas, podemos usar o comando SELECT para selecioná-las.
+-- Criadas as tabelas, podemos usar o comando SELECT para selecionï¿½-las.
 
 SELECT * FROM clientes;
 SELECT * FROM produtos;
@@ -127,9 +132,9 @@ SELECT * FROM vendas;
 -- Preenche a tabela CLIENTES
 
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
-    (1,  'André Martins',   'M', 'andre.m@gmail.com', '12/02/1989', '839.283.190-00');
+    (1,  'Andre Martins',   'M', 'andre.m@gmail.com', '12/02/1989', '839.283.190-00');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
-    (2,  'Bárbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992', '351.391.410-02');
+    (2,  'Barbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992', '351.391.410-02');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
     (3,  'Carol Freitas',   'F', 'carol@gmail.com', '23/04/1985', '139.274.921-12');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
@@ -162,9 +167,9 @@ INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, cus
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit, estoque) VALUES
     (6,  'Inspiron 15 3000',   'Dell', 'Notebook', 2800, 1100, 100);
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit, estoque) VALUES
-    (7,  'Smart TV 4K',   'LG', 'Televisão', 1800, 700, 100);
+    (7,  'Smart TV 4K',   'LG', 'Televisï¿½o', 1800, 700, 100);
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit, estoque) VALUES
-    (8,  'Smart TV Crystal UHD 4K', 'Samsung', 'Televisão', 3000, 1200, 100);
+    (8,  'Smart TV Crystal UHD 4K', 'Samsung', 'Televisï¿½o', 3000, 1200, 100);
 
 -- Preenche a tabela VENDAS
 
@@ -217,19 +222,19 @@ ALTER TABLE produtos
 DROP CONSTRAINT produtos_id_produto_pk CASCADE;
 
 
--- III. Violação de constraints
+-- III. Violaï¿½ï¿½o de constraints
 
--- Exemplo 1: Violação NOT NULL e CHECK
+-- Exemplo 1: Violaï¿½ï¿½o NOT NULL e CHECK
 
 INSERT INTO produtos(id_produto, nome_produto, marca, preco_unit, custo_unit) VALUES
 	(11,  'iPhone 13', 'Apple', 1000, 2200);
     
--- Exemplo 2: Violação UNIQUE
+-- Exemplo 2: Violaï¿½ï¿½o UNIQUE
 
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
 	(11, 'Karine Dias', 'F', 'kdias@gmail.com', '15/06/1993', '416.209.192-47');
 
--- Exemplo 3: Violação de FK e PK
+-- Exemplo 3: Violaï¿½ï¿½o de FK e PK
 
 INSERT INTO vendas(id_venda, data_venda, id_cliente, id_produto, quantidade) VALUES
     (11,  '12/03/2022',   4, 50, 3);
@@ -245,15 +250,15 @@ DROP TABLE vendas;
 
 
 
--- V. SEQUÊNCIAS
+-- V. SEQUï¿½NCIAS
 
--- O que é?
--- Uma sequência (Sequence) é um objeto que utilizamos para criação de números 
--- sequenciais automáticos. São usados especialmente para gerar valores sequenciais
--- únicos para as chaves primárias das tabelas.
+-- O que ï¿½?
+-- Uma sequï¿½ncia (Sequence) ï¿½ um objeto que utilizamos para criaï¿½ï¿½o de nï¿½meros 
+-- sequenciais automï¿½ticos. Sï¿½o usados especialmente para gerar valores sequenciais
+-- ï¿½nicos para as chaves primï¿½rias das tabelas.
 
--- Dessa forma, não precisamos ficar preenchendo a sequência de ids manualmente (como fizemos
--- até então), podemos gerar automaticamente por meio de uma sequence.
+-- Dessa forma, nï¿½o precisamos ficar preenchendo a sequï¿½ncia de ids manualmente (como fizemos
+-- atï¿½ entï¿½o), podemos gerar automaticamente por meio de uma sequence.
 
 /* Sintaxe
 *
@@ -263,12 +268,12 @@ INCREMENT BY n
 START WITH n
 MAXVALUE n | NOMAXVALUE
 MINVALUE n | NOMINVALUE
-CYCLE | NOCYCLE       -- quando atinge o valor máximo, pode ou não voltar do começo
+CYCLE | NOCYCLE       -- quando atinge o valor mï¿½ximo, pode ou nï¿½o voltar do comeï¿½o
 CACHE n | NOCACHE;
 
 */
 
--- Crie uma sequência para o id_venda
+-- Crie uma sequï¿½ncia para o id_venda
 
 CREATE SEQUENCE vendas_seq
 START WITH 1
@@ -277,7 +282,7 @@ NOMAXVALUE
 NOCYCLE
 NOCACHE;
 
--- Crie uma sequência para o id_cliente
+-- Crie uma sequï¿½ncia para o id_cliente
 
 CREATE SEQUENCE clientes_seq
 START WITH 1
@@ -286,7 +291,7 @@ NOMAXVALUE
 NOCYCLE
 NOCACHE;
 
--- Crie uma sequência para o id_produto
+-- Crie uma sequï¿½ncia para o id_produto
 
 CREATE SEQUENCE produtos_seq
 START WITH 1
@@ -298,13 +303,13 @@ NOCACHE;
 SELECT * FROM user_sequences;
 
 
--- Próximo valor da sequência
+-- Prï¿½ximo valor da sequï¿½ncia
 
 SELECT vendas_seq.NEXTVAL
 FROM dual;
 
 
--- Valor atual da sequência
+-- Valor atual da sequï¿½ncia
 
 SELECT vendas_seq.CURRVAL
 FROM dual;
@@ -313,7 +318,7 @@ FROM dual;
 DROP SEQUENCE vendas_seq;
 
 
--- Usando a sequence na prática
+-- Usando a sequence na prï¿½tica
 
 TRUNCATE TABLE vendas;
 TRUNCATE TABLE clientes;
@@ -322,9 +327,9 @@ TRUNCATE TABLE produtos;
 -- Preenche a tabela CLIENTES
 
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
-    (clientes_seq.NEXTVAL,  'André Martins',   'M', 'andre.m@gmail.com', '12/02/1989', '839.283.190-00');
+    (clientes_seq.NEXTVAL,  'Andrï¿½ Martins',   'M', 'andre.m@gmail.com', '12/02/1989', '839.283.190-00');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
-    (clientes_seq.NEXTVAL,  'Bárbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992', '351.391.410-02');
+    (clientes_seq.NEXTVAL,  'Bï¿½rbara Campos',  'F', 'barb_campos@hotmail.com', '07/05/1992', '351.391.410-02');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
     (clientes_seq.NEXTVAL,  'Carol Freitas',   'F', 'carol@gmail.com', '23/04/1985', '139.274.921-12');
 INSERT INTO clientes(id_cliente, nome_cliente, sexo, email, data_nascimento, cpf) VALUES
@@ -357,9 +362,9 @@ INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, cus
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit, estoque) VALUES
     (produtos_seq.NEXTVAL,  'Inspiron 15 3000',   'Dell', 'Notebook', 2800, 1100, 100);
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit, estoque) VALUES
-    (produtos_seq.NEXTVAL,  'Smart TV 4K',   'LG', 'Televisão', 1800, 700, 100);
+    (produtos_seq.NEXTVAL,  'Smart TV 4K',   'LG', 'Televisï¿½o', 1800, 700, 100);
 INSERT INTO produtos(id_produto, nome_produto, marca, categoria, preco_unit, custo_unit, estoque) VALUES
-    (produtos_seq.NEXTVAL,  'Smart TV Crystal UHD 4K', 'Samsung', 'Televisão', 3000, 1200, 100);
+    (produtos_seq.NEXTVAL,  'Smart TV Crystal UHD 4K', 'Samsung', 'Televisï¿½o', 3000, 1200, 100);
 
 -- Preenche a tabela VENDAS
 
@@ -406,15 +411,15 @@ NOCACHE;
 
 -- VII. Cuidados ao criar sequences
 
--- 1. Se tivermos um ROLLBACK, as transações são desfeitas, mas o NEXTVAL não volta atrás
--- 2. Não utilize uma mesma sequência em mais de uma tabela
+-- 1. Se tivermos um ROLLBACK, as transaï¿½ï¿½es sï¿½o desfeitas, mas o NEXTVAL nï¿½o volta atrï¿½s
+-- 2. Nï¿½o utilize uma mesma sequï¿½ncia em mais de uma tabela
 
 
 
--- VIII. ÍNDICES
+-- VIII. ï¿½NDICES
 
--- O que é?
--- Um índice se trata de um recurso do Banco de Dados que possibilita que uma consulta
+-- O que ï¿½?
+-- Um ï¿½ndice se trata de um recurso do Banco de Dados que possibilita que uma consulta
 -- seja retornada com uma maior rapidez, otimizando a busca dos dados no BD.
 
 SELECT * FROM produtos
